@@ -1,27 +1,26 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.title {
+  width: 100%;
 }
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.line-through {
+  text-decoration: line-through;
 }
-
-#container a {
-  text-decoration: none;
+ion-modal {
+  ion-content {
+    height: 90%;
+  }
+  .task-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+ion-card {
+  max-height: 500px;
 }
