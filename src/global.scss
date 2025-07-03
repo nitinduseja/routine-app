@@ -1,3 +1,25 @@
+
+body.dark-theme {
+  --ion-background-color: #181818;
+  --ion-text-color: #fff;
+  --ion-toolbar-background: #222;
+  --ion-toolbar-color: #fff;
+  --ion-card-background: #232323;
+  --ion-item-background: #232323;
+}
+body.light-theme {
+  --ion-background-color: #fff;
+  --ion-text-color: #181818;
+  --ion-toolbar-background: #fff;
+  --ion-toolbar-color: #181818;
+  --ion-card-background: #fff;
+  --ion-item-background: #fff;
+}
+
+ion-content, ion-toolbar, ion-card, ion-item, body {
+  background: var(--ion-background-color) !important;
+  color: var(--ion-text-color) !important;
+}
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------

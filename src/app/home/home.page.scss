@@ -1,3 +1,66 @@
+// Theme switch button alignment
+.theme-switch-btns {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+// Empty state styles
+.empty-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+}
+.empty-icon {
+  margin-bottom: 12px;
+  color: #b8c1ec;
+}
+.empty-title {
+  color: #b8c1ec;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.empty-desc {
+  color: #888;
+  font-size: 0.95em;
+}
+// Remove scroll from home page content
+.no-scroll-content {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+// Fix floating button alignment
+.custom-fab {
+  position: fixed !important;
+  right: 24px !important;
+  bottom: 24px !important;
+  z-index: 1000;
+}
+ion-header {
+  ion-toolbar {
+    ion-title {
+      font-weight: bold;
+    }
+    ion-buttons {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+
+body.dark-theme {
+  --ion-background-color: #181818;
+  --ion-text-color: #fff;
+}
+body.light-theme {
+  --ion-background-color: #fff;
+  --ion-text-color: #181818;
+}
 .title {
   width: 100%;
 }

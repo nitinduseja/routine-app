@@ -1,7 +1,25 @@
-<ion-content [fullscreen]="true">
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end" class="theme-switch-btns">
+      <ion-button (click)="cycleTheme()">
+        <ion-icon [name]="themeIcon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scroll-y="false" class="no-scroll-content">
 
   <div class="empty" *ngIf="list.length == 0">
-    <img src="assets/images/empty.jpg" alt="empty" width="500">
+    <div class="empty-inner">
+      <ion-icon name="document-outline" size="large" class="empty-icon"></ion-icon>
+      <div class="empty-title">
+        Nothing here yet!
+      </div>
+      <div class="empty-desc">
+        Add your first routine
+      </div>
+    </div>
   </div>
 
   <ion-grid>
@@ -90,8 +108,8 @@
     </ng-template>
   </ion-modal>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="isModalOpen = true" color="light">
+  <ion-fab slot="fixed" class="custom-fab">
+    <ion-fab-button (click)="isModalOpen = true" [color]="theme === 'dark' ? 'dark' : 'light'">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

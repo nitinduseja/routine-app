@@ -15,6 +15,45 @@ import { ActionSheetController, ToastController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  theme: 'system' | 'light' | 'dark' = 'system';
+  themeIcon: string = 'contrast'; // system: contrast, light: sunny, dark: moon
+  ngAfterViewInit() {
+    this.setTheme(this.theme);
+  }
+
+  cycleTheme() {
+    if (this.theme === 'system') {
+      this.theme = 'light';
+    } else if (this.theme === 'light') {
+      this.theme = 'dark';
+    } else {
+      this.theme = 'system';
+    }
+    this.setTheme(this.theme);
+  }
+
+  setTheme(theme: 'system' | 'light' | 'dark') {
+    const body = document.body;
+    body.classList.remove('dark-theme', 'light-theme');
+    if (theme === 'dark') {
+      body.classList.add('dark-theme');
+      this.themeIcon = 'moon';
+    } else if (theme === 'light') {
+      body.classList.add('light-theme');
+      this.themeIcon = 'sunny';
+    } else {
+      // system
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        body.classList.add('dark-theme');
+      } else {
+        body.classList.add('light-theme');
+      }
+      this.themeIcon = 'contrast';
+    }
+    // Force Ionic to recalculate theme variables
+    document.documentElement.style.setProperty('color-scheme', theme === 'dark' ? 'dark' : theme === 'light' ? 'light' : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  }
   isModalOpen: boolean = false;
   routineForm: FormGroup;
   tasks: FormArray;
